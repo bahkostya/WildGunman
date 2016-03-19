@@ -1,0 +1,468 @@
+.game {
+  width: 1200px;
+  height: 758px;
+  margin: 20px auto;
+  padding: 0 100px;
+  background-color: #000;
+  box-sizing: border-box;
+}
+.players-panel {
+  height: 70px;
+  width: 100%;
+  border-bottom: 3px solid #fff;
+  padding: 9px 50px 0 50px;
+  box-sizing: border-box;
+  font: 400 30px/35px  'Press Start 2P', cursive;
+  color: #84D80E;
+}
+.time-panel {
+  height: 80px;
+  width: 100%;
+  padding: 13px 50px 0 50px;
+  box-sizing: border-box;
+  font: 400 50px/55px  'Press Start 2P', cursive;
+  color: #84D80E;
+}
+.score-panel {
+  height: 100px;
+  width: 100%;
+  padding: 30px 50px 0 50px;
+  box-sizing: border-box;
+  font: 400 30px/35px  'Press Start 2P', cursive;
+  color: #fff;
+  text-transform: uppercase;
+}
+.score-panel__score_num {
+  color: #84D80E;
+}
+.players-panel__gunman {
+  padding: 5px 20px 3px 20px;
+  width: 180px;
+  border: 3px solid #84D80E;
+  border-radius: 10px;
+  float: left;
+}
+.players-panel__you {
+  padding: 5px 20px 3px 20px;
+  width: 90px;
+  border: 3px solid #84D80E;
+  border-radius: 10px;
+  float: right;
+}
+.time-panel__gunman {
+  float: left;
+}
+.time-panel__you {
+  float: right;
+}
+.score-panel__score {
+  float: left;
+  display: none;
+}
+.score-panel__level {
+  float: right;
+}
+.menu {
+  display: none;
+}
+.menu__show {
+  display: block;
+  background: #000;
+  height: 758px;
+  width: 1200px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -600px;
+  z-index: 999;
+}
+.menu__title {
+  font: 400 120px/145px  'Press Start 2P', cursive;
+  color: #F3FD66;
+  text-align: center;
+  margin-top: 100px;
+}
+.menu__start {
+  width: 350px;
+  height: 60px;
+  border: 3px solid #fff;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  padding: 8px;
+  font: 400 30px/40px  'Press Start 2P', cursive;
+  color: #fff;
+  margin: 0 auto;
+  display: block;
+}
+.menu__start:hover {
+  background-color: #fff;
+  color: #000;
+}
+.gameover {
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+  height: 758px;
+  width: 1000px;
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  margin-left: -500px;
+  z-index: 999;
+}
+.gameover__reason {
+  font: 400 80px/145px  'Press Start 2P', cursive;
+  color: #F3FD66;
+  text-align: center;
+  margin-top: 200px;
+}
+.gameover__total-score {
+  font: 400 40px/60px  'Press Start 2P', cursive;
+  color: #fff;
+  text-align: center;
+  margin-top: 100px;
+}
+.game-field {
+  height: 508px;
+  width: 100%;
+  background: transparent url(../img/bg.png) 0 0 no-repeat;
+  overflow: hidden;
+  position: relative;
+  cursor: url(../img/aim-cursor.gif) 46 46, auto;
+}
+.game-field__character {
+  position: absolute;
+  bottom: 100px;
+  background: url(../img/gunman.png);
+  left: 1000px;
+}
+.character__move {
+  left: 436px;
+  transition: left 4s linear;
+}
+.game-field__message {
+  position: absolute;
+  top: 50px;
+  left: 550px;
+  height: 50px;
+  background-color: #fff;
+  border: 3px solid #000;
+  border-radius: 15px;
+  padding: 10px;
+  text-align: center;
+  box-sizing: border-box;
+  color: #000;
+  font: 400 25px/30px  'Press Start 2P', cursive;
+  text-transform: uppercase;
+  display: none;
+}
+@keyframes killyou {
+  0% {
+    box-shadow: inset 0 0 400px rgba(255, 0, 0, 1)
+  }
+  20% {
+    box-shadow: inset 0 0 500px rgba(255, 0, 0, 1)
+  }
+  30% {
+    box-shadow: inset 0 0 200px rgba(255, 0, 0, 1)
+  }
+  100% {
+    box-shadow: inset 0 0 200px rgba(255, 0, 0, 0)
+  }
+}
+.game-field__kill {
+  animation: 2.5s killyou linear;
+}
+.game-field__level {
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  width: 700px;
+  background-color: transparent;
+  text-align: center;
+  color: #fff;
+  font: 400 90px/100px  'Press Start 2P', cursive;
+  text-transform: uppercase;
+  display: none;
+}
+
+/*========================= SKIN 1 =============================*/
+@keyframes skin1-steps {
+  0% {
+    background-position: 0 0
+  }
+  33% {
+    background-position: -136px 0
+  }
+  66% {
+    background-position: -268px 0
+  }
+}
+.skin1 {
+  background-position: 0 0;
+  height: 265px;
+  width: 128px;
+}
+.skin1__stay {
+  background-position: -400px 0;
+}
+.skin1__walk {
+  -webkit-animation: skin1-steps 0.4s step-start infinite;
+  -o-animation: skin1-steps 0.4s step-start infinite;
+  animation: skin1-steps 0.4s step-start infinite;
+}
+.skin1__ready {
+  background-position: -808px 0;
+}
+@keyframes skin1-shot {
+  0% {
+    background-position: -944px 0;
+  }
+  20% {
+    background-position: -1080px 0;
+  }
+  80% {
+    background-position: -1216px 0;
+  }
+}
+.skin1__shoot {
+  -webkit-animation: skin1-shot 1s step-end 1;
+  -o-animation: skin1-shot 1s step-end 1;
+  animation: skin1-shot 1s step-end 1;
+}
+@keyframes skin1-death {
+  0% {
+    background-position: -1352px 0;
+  }
+  20% {
+    background-position: -1352px 0;
+  }
+  100% {
+    background-position: -1488px 0;
+  }
+}
+.skin1__die {
+  -webkit-animation: skin1-death 1s step-start 1;
+  -o-animation: skin1-death 1s step-start 1;
+  animation: skin1-death 1s step-start 1;
+}
+.skin1__dead {
+  background-position: -1488px 0;
+}
+
+/*========================= SKIN 2 =============================*/
+@keyframes skin2-steps {
+  0% {
+    background-position: 0 -272px
+  }
+  33% {
+    background-position: -128px -272px
+  }
+  66% {
+    background-position: -256px -272px
+  }
+}
+.skin2 {
+  background-position: 0 -272px;
+  height: 288px;
+  width: 128px;
+}
+.skin2__stay {
+  background-position: 0 -272px;
+}
+.skin2__walk {
+  -webkit-animation: skin2-steps 0.4s step-start infinite;
+  -o-animation: skin2-steps 0.4s step-start infinite;
+  animation: skin2-steps 0.4s step-start infinite;
+}
+.skin2__ready {
+  background-position: -384px -272px;
+}
+@keyframes skin2-shot {
+  0% {
+    background-position: -512px -272px;
+  }
+  20% {
+    background-position: -768px -272px;
+  }
+  80% {
+    background-position: -896px -272px;
+  }
+}
+.skin2__shoot {
+  -webkit-animation: skin2-shot 1s step-end 1;
+  -o-animation: skin2-shot 1s step-end 1;
+  animation: skin2-shot 1s step-end 1;
+}
+.skin2__die {
+  background-position: -1024px -272px;
+}
+.skin2__dead {
+  background-position: -1024px -272px;
+}
+
+/*========================= SKIN 3 =============================*/
+@keyframes skin3-steps {
+  0% {
+    background-position: 0 -576px
+  }
+  33% {
+    background-position: -128px -576px
+  }
+  66% {
+    background-position: -256px -576px
+  }
+}
+.skin3 {
+  background-position: 0px -576px;
+  height: 320px;
+  width: 128px;
+}
+.skin3__stay {
+  background-position: 0px -576px;
+}
+.skin3__walk {
+  -webkit-animation: skin3-steps 0.4s step-start infinite;
+  -o-animation: skin3-steps 0.4s step-start infinite;
+  animation: skin3-steps 0.4s step-start infinite;
+}
+.skin3__ready {
+  background-position: -384px -576px;
+}
+@keyframes skin3-shot {
+  0% {
+    background-position: -512px -576px;
+  }
+  20% {
+    background-position: -640px -576px;
+  }
+  80% {
+    background-position: -768px -576px;
+  }
+}
+.skin3__shoot {
+  -webkit-animation: skin3-shot 1s step-end 1;
+  -o-animation: skin3-shot 1s step-end 1;
+  animation: skin3-shot 1s step-end 1;
+}
+.skin3__die {
+  background-position: -896px -576px;
+}
+.skin3__dead {
+  background-position: -896px -576px;
+}
+
+/*========================= SKIN 4 =============================*/
+@keyframes skin4-steps {
+  0% {
+    background-position: 0px -912px
+  }
+  33% {
+    background-position: -128px -912px
+  }
+  66% {
+    background-position: -256px -912px
+  }
+}
+.skin4 {
+  background-position: 0px -912px;
+  height: 256px;
+  width: 128px;
+}
+.skin4__stay {
+  background-position: 0px -912px;
+}
+.skin4__walk {
+  -webkit-animation: skin4-steps 0.4s step-start infinite;
+  -o-animation: skin4-steps 0.4s step-start infinite;
+  animation: skin4-steps 0.4s step-start infinite;
+}
+.skin4__ready {
+  background-position: -384px -912px;
+}
+@keyframes skin4-shot {
+  0% {
+    background-position: -512px -912px;
+  }
+  20% {
+    background-position: -640px -912px;
+  }
+  80% {
+    background-position: -768px -912px;
+  }
+}
+.skin4__shoot {
+  -webkit-animation: skin4-shot 1s step-end 1;
+  -o-animation: skin4-shot 1s step-end 1;
+  animation: skin4-shot 1s step-end 1;
+}
+.skin4__die {
+  background-position: -896px -912px;
+}
+.skin4__dead {
+  background-position: -896px -912px;
+}
+
+/*========================= SKIN 5 =============================*/
+@keyframes skin5-steps {
+  0% {
+    background-position: 0px -1184px
+  }
+  33% {
+    background-position: -128px -1184px
+  }
+  66% {
+    background-position: -256px -1184px
+  }
+}
+.skin5 {
+  background-position: 0px -1184px;
+  height: 276px;
+  width: 128px;
+}
+.skin5__stay {
+  background-position: 0px -1184px;
+}
+.skin5__walk {
+  -webkit-animation: skin5-steps 0.4s step-start infinite;
+  -o-animation: skin5-steps 0.4s step-start infinite;
+  animation: skin5-steps 0.4s step-start infinite;
+}
+.skin5__ready {
+  background-position: -384px -1184px;
+}
+@keyframes skin5-shot {
+  0% {
+    background-position: -512px -1184px;
+  }
+  20% {
+    background-position: -640px -1184px;
+  }
+  80% {
+    background-position: -768px -1184px;
+  }
+}
+.skin5__shoot {
+  -webkit-animation: skin5-shot 1s step-end 1;
+  -o-animation: skin5-shot 1s step-end 1;
+  animation: skin5-shot 1s step-end 1;
+}
+@keyframes skin5-death {
+  0% {
+    background-position: -896px -1184px;
+  }
+  20% {
+    background-position: -896px -1184px;
+  }
+  100% {
+    background-position: -1024px -1184px;
+  }
+}
+.skin5__die {
+  -webkit-animation: skin5-death 1s step-start 1;
+  -o-animation: skin5-death 1s step-start 1;
+  animation: skin5-death 1s step-start 1;
+}
+.skin5__dead {
+  background-position: -1024px -1184px;
+}

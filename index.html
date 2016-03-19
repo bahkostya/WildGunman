@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Wild Gunman</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+<body>
+  <div class="menu menu__show">
+    <h1 class="menu__title">WILD<br>GUNMAN</h1>
+    <button class="menu__start">START GAME</button>
+  </div>
+  <div class="gameover">
+    <h1 class="gameover__reason"></h1>
+    <div class="gameover__total-score"></div>
+  </div>
+
+  <div class="game">
+    <div class="players-panel">
+      <div class="players-panel__gunman">GUNMAN</div>
+      <div class="players-panel__you">YOU</div>
+    </div>
+    <div class="time-panel">
+      <div class="time-panel__gunman">0.00</div>
+      <div class="time-panel__you">0.00</div>
+    </div>
+
+    <div class="game-field">
+      <div class="game-field__level"></div>
+      <div class="game-field__message"></div>
+      <div class="game-field__character"></div>
+    </div>
+
+    <div class="score-panel">
+      <div class="score-panel__score">Score: <span class="score-panel__score_num">0</span></div>
+      <div class="score-panel__level"></div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
